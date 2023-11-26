@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-vol-1/512/icon-99-512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display:ital@1&family=PT+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="movie.js" defer></script>
+    <title>MovieFound</title>
+    <style>
+        body {
+            color: white;
+            background-color: #010001;
+            font-family: 'Anton', sans-serif;
+            font-family: 'DM Serif Display', serif;
+            font-family: 'PT Serif', serif;
+            scroll-behavior: smooth;
+            height: auto;
+            overflow-x:hidden;
+
+
+        }
+
+        .favori {
+            width: 100%;
+            height: auto;
+        }
+
+        p.card-text {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .nav-link:hover {
+            transition-duration: 0.6s;
+            border-bottom: 3px solid #DC3545;
+
+        }
+
+        .er {
+            position: static;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* margin-top: 70px; */
+            gap: 5px;
+        }
+
+        .img_icon {
+            margin-top: 0px;
+
+
+        }
+
+        .banner {
+            width: 100%;
+            height: 80vh;
+
+        }
+
+        .apropos {
+            width: 100%;
+            height: auto;
+        }
+
+        .recherche {
+            width: 100%;
+            height: 80vh;
+            padding-top: 70px;
+
+        }
+
+        .vid_banner {
+            width: 100%;
+            height: 530px;
+            overflow: hidden;
+        }
+
+        .g-2 {
+            gap: 450px;
+        }
+
+        .navbar-nav {
+            gap: 20px;
+            margin-left: 130px;
+        }
+
+        .navbar {
+            background-color: #010001;
+
+
+        }
+
+        .img_b {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .bb {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        ul li a:hover {
+            color: #DC3545;
+        }
+
+        #mm {
+            font-size: 28px;
+            color: #DC3545;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .rb {
+            width: 500px;
+        }
+
+
+
+        hr {
+            width: 250px;
+            border: 2px solid #cb1c2d;
+            margin-top: -3px;
+        }
+
+        .fp {
+
+            display: none;
+        }
+
+        .fd {
+            display: block;
+        }
+
+        div#navbarNav {
+            margin-left: 250px;
+        }
+
+        .Suggections {
+            width: 100%;
+            height: 80vh;
+            padding-top: 0px;
+        }
+
+        @media only screen and (min-width: 600px) {
+            .row {
+                flex-direction: row-reverse;
+            }
+
+            .g-2 {
+                gap: 0px;
+            }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .favori {
+                margin-top: 400px;
+                width: 100%;
+                height: auto;
+            }
+
+            div#navbarNav {
+                margin-left: 0px;
+            }
+
+            .vid_banner {
+                width: 100%;
+                height: 18vh;
+                overflow: hidden;
+            }
+
+            .g-2 {
+                gap: 0px;
+            }
+
+            .bb {
+                z-index: 2;
+                width: 300px;
+                margin: 0;
+                position: absolute;
+                top: 21%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+            }
+
+            a.navbar-brand.text-light.lg {
+                margin-left: 20%;
+            }
+
+            .banner {
+                width: 100%;
+                height: 0vh;
+            }
+
+            .recherche {
+                margin-top: 220px;
+            }
+
+            .rb {
+                width: 100%;
+            }
+
+            .fp {
+                display: block;
+            }
+
+            .fd {
+                display: none;
+            }
+
+            h1.text-danger.ert {
+                font-size: 22px;
+            }
+
+            .hdn {
+                visibility: hidden;
+            }
+
+            .row-cols-auto>* {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-primary ">
+        <div class="container g-2 d-flex justify-content-around ">
+            <a class="navbar-brand text-light" href="#"><span id="mm">Movie</span>Find <img
+                    src="https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-vol-1/512/icon-99-512.png"
+                    width="35px"></a>
+            <button onclick="hideBT" class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <img src="navtog.png" class="navbar-toggler-icon" widht="30px">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex ">
+                    <li class="nav-item me-3">
+                        <a class="nav-link activ text-light" aria-current="page" href="#">Acceuil</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#recherche">Recherche</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#favoris">Favoris</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#sgg">Suggections</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#apropos">Apropos</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="banner ">
+        <div class="vid_banner shadow">
+            <video controls autoplay loop muted width="100%">
+                <source src="videoplayback (96).mp4" type="video/mp4">
+            </video>
+        </div>
+        <a href="#recherche" class="fd">
+            <button type="button" class="btn btn-outline-danger bb">
+                <h1>Touver un film maintenant</h1>
+            </button>
+        </a>
+        <a href="#recherche" class="fp">
+            <button type="button" class="btn btn-outline-danger bb" id="tuf">
+                Touver un film maintenant
+            </button>
+        </a>
+    </div>
+    </div>
+    <div class="recherche d-flex align-items-center flex-column py-3 p-3" id="recherche">
+        <h1 class="recherche_titre">Rechercher un film</h1>
+        <hr>
+        <div class="container-fluid rb">
+            <form id="ff">
+                <div class="input-group">
+                    <input type="text" name="titre" class="form-control" placeholder="Rechercher un film.." required>
+                    <button type="submit" class="input-group-text"><img
+                            src="https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-search-icon-image_1344447.jpg"
+                            width="20px"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="favori container-fluid py-5 p-5 " id="favoris">
+        <h1 class="mx-auto text-center">Vos films favoris</h1>
+        <hr class="mx-auto text-center">
+        <div class="row row-cols-auto row-cols-md-2 mx-auto p-3 g-0 fvr">
+
+        </div>
+    </div>
+    <div class="apropos container py-3 mb-3" id="apropos">
+        <h1 class="text-center">Apropos de MovieFind </h2>
+            <hr class="mx-auto text-center">
+            <p class="fs-5 text-center">Le site web a pour objectif de fournir aux utilisateurs une plateforme
+                conviviale pour rechercher des
+                informations détaillées sur des films. Voici un résumé des principales fonctionnalités et objectifs du
+                site :</p>
+            <ul class="fs-5 text-center">
+                <li> Barre de Recherche : Les utilisateurs peuvent rechercher des films en saisissant le titre dans la
+                    barre
+                    de recherche.
+                </li>
+                <li>
+                    Résultats de Recherche : Les résultats de la recherche sont présentés sous forme de cartes,
+                    affichant
+                    une image du film, le titre et un résumé.
+                </li>
+                <li>
+                    Détails du Film : Les utilisateurs peuvent obtenir des informations détaillées sur un film
+                    spécifique en
+                    cliquant sur le bouton "Détails", ce qui ouvre une fenêtre modale.
+                </li>
+                <li>
+                    Ajout aux Favoris : Les utilisateurs peuvent ajouter leurs films préférés à la section "Vos films
+                    favoris" en cliquant sur le bouton "Ajouter aux favoris".
+                </li>
+                <li>
+                    Section Favoris : La section "Vos films favoris" affiche les films ajoutés par l'utilisateur, avec
+                    des
+                    détails similaires à ceux des résultats de recherche.
+                </li>
+            </ul>
+
+            <p class="fs-5 text-center">En résumé, le site vise à offrir une expérience intuitive et pratique pour les
+                amateurs de cinéma en
+                facilitant la recherche d'informations sur les films, en fournissant des détails complets et en
+                permettant aux utilisateurs de constituer leur liste de films favoris.</p>
+    </div>
+    <div class="Suggections container w-500" id="sgg">
+        <h1 class="text-center">Suggections</h1>
+        <hr class="mx-auto text-center">
+        <div class="row row-cols-auto row-cols-md-2 mx-auto p-3 g-5">
+            <div class="col">
+                <p class="text-center fs-4"> Nous sommes constamment à la recherche de moyens pour améliorer votre
+                    expérience sur MovieFind. Si vous avez des idées ou des suggestions pour rendre notre site
+                    encore meilleur, n'hésitez pas à nous les faire savoir. Votre avis compte beaucoup pour nous et
+                    contribuera à rendez MovieFind plus adapté à vos besoins. Merci d'avance pour votre précieuse
+                    contribution !
+                </p>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Votre adresse mail</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Armel Didrel@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Ecrivez ici</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success mx-auto btn-lg ">Envoyer</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="bg-secondary p-3">
+            <i class="mx-auto ">Cree par Armel Gania @copy rihgt     --tout droit reservé-- </i>
+           </div>
+    </div>
+   
+
+</body>
+
+</html>
